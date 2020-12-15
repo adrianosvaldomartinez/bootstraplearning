@@ -211,11 +211,11 @@
                         </a>
                     </div>
                     <div class="btn-group" id="carouselButton">
-                        <button class="btn btn-danger btn-sm" id="carousel-pause">
-                            <span class="fa fa-pause"></span>
+                        <button class="btn btn-danger btn-sm" id="carouselButton">
+                            <span id="carousel-button-icon" class="fa fa-pause"></span>
                         </button>
-                        <button class="btn btn-danger btn-sm" id="carousel-play">
-                            <span class="fa fa-play"></span>
+                        <!-- <button class="btn btn-danger btn-sm" id="carousel-play">
+                            <span class="fa fa-play"></span> -->
                         </button>
                     </div>
     
@@ -363,6 +363,8 @@
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- boton para inciiar y para parar cicurculacion de carrusel
   <script>
     $(document).ready(function(){
         $("#mycarousel").carousel( { interval: 100 } );
@@ -373,6 +375,20 @@
             $("#mycarousel").carousel('cycle');
         });
     });
+</script> -->
+<script>
+     $("#carouselButton").click(function(){
+                if ($("#carouselButton").children("span").hasClass('fa-pause')) {
+                    $("#mycarousel").carousel('pause');
+                    $("#carouselButton").children("span").removeClass('fa-pause');
+                    $("#carouselButton").children("span").addClass('fa-play');
+                }
+                else if ($("#carouselButton").children("span").hasClass('fa-play')){
+                    $("#mycarousel").carousel('cycle');
+                    $("#carouselButton").children("span").removeClass('fa-play');
+                    $("#carouselButton").children("span").addClass('fa-pause');                    
+                }
+            });
 </script>
 
  <!-- too tip desactivado -->
